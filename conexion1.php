@@ -1,7 +1,7 @@
 <?php
 // simple conexion a la base de datos
 function connect(){
-	return new mysqli("localhost","root","webescom","emc");
+	return new mysqli("localhost","root","","emc");
 }
 
 ?>
