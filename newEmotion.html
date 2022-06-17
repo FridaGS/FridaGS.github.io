@@ -57,18 +57,17 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                    aria-controls="collapseTwo">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Mis emociones</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">¿Qué quieres hacer?</h6>
-                        <a class="collapse-item active" href="newEmotion.html">Agregar nueva emoción</a>
-                        <a class="collapse-item" href="diary.html">Escribir diario</a>
+                        <a class="collapse-item" href="newEmotion.html">Agregar nueva emoción</a>
+                        <a class="collapse-item" href="diary.html">Escribir diario </a>
                     </div>
                 </div>
             </li>
@@ -83,13 +82,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Actividades</h6>
-                        <a class="collapse-item" href="social.html">Social</a>
-                        <a class="collapse-item" href="utilities-border.html">Aficiones</a>
-                        <a class="collapse-item" href="utilities-animation.html">Sueño</a>
-                        <a class="collapse-item" href="utilities-other.html">Alimento</a>
-                        <a class="collapse-item" href="utilities-other.html">Salud</a>
-                        <a class="collapse-item" href="utilities-other.html">Mejor yo</a>
+                        <a class="collapse-item" href="social.html">Registrar hábitos</a>
                     </div>
                 </div>
             </li>
@@ -111,9 +104,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Atención psicológica</a>
-                        <a class="collapse-item" href="register.html">Música relajante</a>
-                        <a class="collapse-item" href="forgot-password.html">Meditación guiada</a>
+                        <a class="collapse-item" href="mentalhealth.html">Atención psicológica</a>
+                        <a class="collapse-item" href="relaxingMusic.html">Música relajante</a>
+                        <a class="collapse-item" href="meditation.html">Meditación guiada</a>
                     </div>
                 </div>
             </li>
@@ -139,7 +132,6 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
             <div id="content">
 
                 <!-- Topbar -->
@@ -150,166 +142,9 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -340,9 +175,7 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -350,159 +183,141 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Mis emociones</h1>
-					<fieldset>
-						La fecha de hoy y la hora es:
-						<input type="datetime-local" id="fecha y hora" value="fecha y hora"><br><br>
-					</fieldset>
+                    <h1 class="h3 mb-4 text-gray-800">Conoce tus emociones:</h1>
+                    <p>¡Hola <?php echo $nombre ?>!</p>
+                    <p>Bienvenido a la sección de emociones, aquí podrás conocer todas las emociones que puedes experimentar en tu día a día, gracias a la <b>ruleta de las 
+                    emociones.</b> Puedes llevar un registro de las emociones que has sentido dependiendo del día de la semana, así podrás <b>reconocer</b> de mejor manera
+                    cuales son las emociones que más influyen en tu vida diaria. No temas a <b>experimentar</b> cualquier tipo de emoción que esta dentro de la ruleta (O fuera de ella), 
+                    es hora de mejorar nuestra <b>inteligencia emocional</b> y aprender a reconocer nuestros sentimientos.</p>
                     <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary text-center">¡Ruleta de las emociones!</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                <input type="image" src="img/ruletaem.png" width="500" height="500" style="float:justify">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="col-lg-2">
+                    <div class="row">
+                        <div class="col-lg-12">
 
                             <!-- Circle Buttons -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Me siento..</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Mis emociones hoy: <h id="current_date"></h></h6>
+                                    <script>
+                                        date = new Date();
+                                        year = date.getFullYear();
+                                        month = date.getMonth() + 1;
+                                        day = date.getDate();
+                                        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+                                    </script>
                                 </div>
                                 <div class="card-body">
-										<input type="image" src="img/feliz.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Feliz<br>
-										</dd>
-										<input type="image" src="img/alegre.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Alegre<br>
-										</dd>
-										<input type="image" src="img/contento.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Contento<br>
-										</dd>
-										<input type="image" src="img/divertido.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Divertido<br>
-										</dd>
-										<input type="image" src="img/risueño.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Risueño<br>
-										</dd>
-										<input type="image" src="img/divertido.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Divertido<br>
-										</dd>
+                                    <form method="post" action="emociones.php">
+                                        <div class="form-group row">			
+                                            <input type="hidden" class="form-control" name="user" value="<?php echo $id;?>" />
+                                        </div>
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Amor
+                                            </h6>
+                                            <select name="namor" class="custom-select my-1 mr-sm-2" id="namor">
+                                                <option value="Aceptado">Aceptado</option>
+                                                <option value="Gentil">Gentil</option>
+                                                <option value="Afectuoso">Afectuoso</option>
+                                                <option value="Apasionado">Apasionado</option>
+                                                <option value="Confiado">Confiado</option>
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Miedo
+                                            </h6>
+                                            <select name="nmiedo" class="custom-select my-1 mr-sm-2" id="nmiedo">
+                                                <option value="Avergonzado">Avergonzado</option>
+                                                <option value="Vulnerable">Vulnerable</option>
+                                                <option value="Rechazado">Rechazado</option>
+                                                <option value="Inseguro">Inseguro</option>
+                                                <option value="Preocupado">Preocupado</option> 
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Enojo
+                                            </h6>
+                                            <select name="nenojo" class="custom-select my-1 mr-sm-2" id="nenojo">
+                                                <option value="Amenazado">Amenazado</option>
+                                                <option value="Furioso">Furioso</option>
+                                                <option value="Ofendido">Ofendido</option>
+                                                <option value="Frustrado">Frustrado</option>
+                                                <option value="Irritado">Irritado</option> 
+                                            </select>
+                                        </div>
+                            
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Tristeza
+                                            </h6>
+                                            <select name="ntristeza" class="custom-select my-1 mr-sm-2" id="ntristeza">
+                                                <option value="Lastimado">Lastimado</option>
+                                                <option value="Culpable">Culpable</option>
+                                                <option value="Solitario">Solitario</option>
+                                                <option value="Indiferente">Indiferente</option>
+                                                <option value="Inadecuado">Inadecuado</option>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Felicidad
+                                            </h6>
+                                            <select name="nfelicidad" class="custom-select my-1 mr-sm-2" id="nfelicidad">
+                                                <option value="Seguro de sí mismo">Seguro de sí mismo</option>
+                                                <option value="Agradecido">Agradecido</option>
+                                                <option value="Tranquilo">Tranquilo</option>
+                                                <option value="Entusiasmado">Entusiasmado</option>
+                                                <option value="Juguetón">Juguetón</option>  
+                                            </select>
+                                        </div>
+                  
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Sorpresa
+                                            </h6>
+                                            <select name="nsorpresa" class="custom-select my-1 mr-sm-2" id="nsorpresa">
+                                                <option value="Sobresaltado">Sobresaltado</option>
+                                                <option value="Abrumado">Abrumado</option>
+                                                <option value="Confundido">Confundido</option>
+                                                <option value="Asombreado">Asombreado</option>
+                                                <option value="Incapacitado">Incapacitado</option>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Repugnancia
+                                            </h6>
+                                            <select name="nrepugnancia" class="custom-select my-1 mr-sm-2" id="nrepugnancia">
+                                                <option value="Resentimiento">Resentimiento</option>
+                                                <option value="Avergonzado">Avergonzado</option>
+                                                <option value="Amargado">Amargado</option>
+                                                <option value="Decepcionado">Decepcionado</option>
+                                                <option value="Reacio">Reacio</option>  
+                                            </select>
+                                        </div>
+                                        <button type="submit" name="register" class="btn btn-primary btn-user btn-block">Registrar Emociones</button>
+                                    </form>	
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-2">
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Me siento..</h6>
-                                </div>
-                                <div class="card-body">
-                                    <input type="image" src="img/triste.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Triste<br>
-										</dd>
-										<input type="image" src="img/llorar.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Llorón<br>
-										</dd>
-										<input type="image" src="img/preocupado.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Preocupado<br>
-										</dd>
-										<input type="image" src="img/sufre.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Sufrimiento<br>
-										</dd>
-										<input type="image" src="img/pensativo.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Pensativo<br>
-										</dd>
-										<input type="image" src="img/nervioso.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Nervioso<br>
-										</dd>
-                                </div>
-                            </div>
-
-                        </div>
-						
-						 <div class="col-lg-2">
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Me siento..</h6>
-                                </div>
-                                <div class="card-body">
-                                    <input type="image" src="img/enojado.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Enojado<br>
-										</dd>
-										<input type="image" src="img/molesto.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Molesto<br>
-										</dd>
-										<input type="image" src="img/perdido.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Perdido<br>
-										</dd>
-										<input type="image" src="img/enfermo.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Enfermo<br>
-										</dd>
-										<input type="image" src="img/sorprendido.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Sorprendido<br>
-										</dd>
-										<input type="image" src="img/presumido.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Elocuente<br>
-										</dd>
-										
-                                </div>
-                            </div>
-						</div>
-						
-						 <div class="col-lg-2">
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Me siento..</h6>
-                                </div>
-                                <div class="card-body">
-                                    <input type="image" src="img/enamorado.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Enamorado<br>
-										</dd>
-										<input type="image" src="img/cariñoso.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Cariñoso<br>
-										</dd>
-										<input type="image" src="img/simpatico.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Simpatico<br>
-										</dd>
-										<input type="image" src="img/bien.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Bien<br>
-										</dd>
-										<input type="image" src="img/grosero.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Grosero<br>
-										</dd>
-										<input type="image" src="img/encantado.jpg" alt="1" width="70" height="70" style="float:justify">
-										<dd>
-											<input type="checkbox" name="respuesta" value="diario">Encantado<br>
-										</dd>
-                                </div>
-                            </div>
-							<form method="" action="">
-								<p><button type="submit">Enviar formulario.</button></p>
-							</form>
-						</div>
-
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

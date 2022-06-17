@@ -1,3 +1,42 @@
+<?php
+	
+	require 'conexion.php';
+	
+	session_start();
+
+	if($_POST){
+		$boleta = $_POST['Boleta'];
+		$password = $_POST['password'];
+
+        $sql = "SELECT id_usuario, nombre, email, telefono, password FROM usuario WHERE boleta='$boleta'";
+		//echo $sql;
+		$resultado = $mysqli->query($sql);
+		$num = $resultado->num_rows;
+
+		if($num>0){
+			$row = $resultado->fetch_assoc();
+			$password_bd = $row['password'];
+			
+			$pass_c = sha1($password);
+			
+			if($password_bd == $pass_c){
+				
+				$_SESSION['id_usuario'] = $row['id_usuario'];
+				$_SESSION['nombre'] = $row['nombre'];
+				
+				header("Location: menu.php");
+				
+			} else {
+                echo '<script language="javascript">alert("La contraseña no coincide");window.location.href="login.php"</script>';			
+			}
+			
+			
+			} else {
+                echo '<script language="javascript">alert("No existe número de boleta");window.location.href="login.php"</script>';	}
+}
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +48,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Iniciar sesión - Alumno</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,46 +74,32 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
+                                <img src="img/logoescom.png" width="400" height="400">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <br> <br>
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo!</h1>
                                     </div>
-                                    <form class="user" method="post" action="login.php">
+                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="Boleta" name="Boleta"
+                                                placeholder="Boleta"required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="password" name="password" placeholder="Contraseña"required>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Entrar</button></div>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="registro.php">Crea una cuenta</a>
                                     </div>
                                 </div>
                             </div>

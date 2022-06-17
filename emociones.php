@@ -1,3 +1,46 @@
+<?php
+    
+    require 'conexion.php';
+    require 'funcs.php';
+    session_start();
+
+    if(!isset($_SESSION['id_usuario'])){
+        header("Location: login.php");
+    }
+    
+    $id = $_SESSION['id_usuario'];
+    $nombre = $_SESSION['nombre'];
+
+    $errors = array();
+
+if (!empty($_POST)){
+    $user = $mysqli->real_escape_string($_POST['user']);
+    $namor = $mysqli->real_escape_string($_POST['namor']);
+    $nmiedo = $mysqli->real_escape_string($_POST['nmiedo']);
+    $nenojo = $mysqli->real_escape_string($_POST['nenojo']);
+    $ntristeza = $mysqli->real_escape_string($_POST['ntristeza']);
+    $nfelicidad = $mysqli->real_escape_string($_POST['nfelicidad']);
+    $nsorpresa = $mysqli->real_escape_string($_POST['nsorpresa']);
+    $nrepugnancia = $mysqli->real_escape_string($_POST['nrepugnancia']);
+    if(count($errors == 0)){
+        $validar = "SELECT * FROM emociones WHERE id_usuario2 = '$user'";
+        $validando = $mysqli->query($validar);
+        if($validando->num_rows > 0){
+            echo '<script language="javascript">alert("Este integrante ya ha sido registrado");window.location.href="ingresarequipo.php"</script>';        
+        } else {
+        $registro = registraEmociones($user, $namor, $nmiedo, $nenojo, $ntristeza, $nfelicidad, $nsorpresa, $nrepugnancia);
+            if($registro > 0){
+            header("Location: emociones.php");
+            } else {
+                header("Location: emociones.php");
+            }
+        } 
+    }
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +52,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Border Utilities</title>
+    <title>Mis emociones</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +78,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Usuario</div>
             </a>
 
             <!-- Divider -->
@@ -53,40 +96,28 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Personal
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="newEmotion.html">Buttons</a>
-                        <a class="collapse-item" href="diary.html">Cards</a>
-                    </div>
-                </div>
-            </li>
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Hábitos</span>
                 </a>
-                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities"
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="social.html">Colors</a>
-                        <a class="collapse-item active" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Actividades</h6>
+                        <a class="collapse-item" href="social.html">Social</a>
+                        <a class="collapse-item" href="utilities-border.html">Aficiones</a>
+                        <a class="collapse-item" href="utilities-animation.html">Sueño</a>
+                        <a class="collapse-item" href="utilities-other.html">Alimento</a>
+                        <a class="collapse-item" href="utilities-other.html">Salud</a>
+                        <a class="collapse-item" href="utilities-other.html">Mejor yo</a>
                     </div>
                 </div>
             </li>
@@ -96,7 +127,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Otros
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -104,18 +135,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Recursos</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="login.html">Atención psicológica</a>
+                        <a class="collapse-item" href="register.html">Música relajante</a>
+                        <a class="collapse-item" href="forgot-password.html">Meditación guiada</a>
                     </div>
                 </div>
             </li>
@@ -124,14 +150,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Seguimiento</span></a>
             </li>
 
             <!-- Divider -->
@@ -359,111 +378,150 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">Border Utilities</h1>
-                    <p class="mb-4">Bootstrap's default utility classes can be found on the official <a
-                            href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities
-                        below were created to extend this theme past the default utility classes built into Bootstrap's
-                        framework.</p>
-
-                    <!-- Content Row -->
+                    <h1 class="h3 mb-4 text-gray-800">Conoce tus emociones:</h1>
+                    <p>¡Hola <?php echo $nombre ?>!</p>
+                    <p>Bienvenido a la sección de emociones, aquí podrás conocer todas las emociones que puedes experimentar en tu día a día, gracias a la <b>ruleta de las 
+                    emociones.</b> Puedes llevar un registro de las emociones que has sentido dependiendo del día de la semana, así podrás <b>reconocer</b> de mejor manera
+                    cuales son las emociones que más influyen en tu vida diaria. No temas a <b>experimentar</b> cualquier tipo de emoción que esta dentro de la ruleta (O fuera de ella), 
+                    es hora de mejorar nuestra <b>inteligencia emocional</b> y aprender a reconocer nuestros sentimientos.</p>
                     <div class="row">
-
-                        <!-- Border Left Utilities -->
-                        <div class="col-lg-6">
-
-                            <div class="card mb-4 py-3 border-left-primary">
-                                <div class="card-body">
-                                    .border-left-primary
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary text-center">¡Ruleta de las emociones!</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                <input type="image" src="img/ruletaem.png" width="500" height="500" style="float:justify">
                                 </div>
                             </div>
-
-                            <div class="card mb-4 py-3 border-left-secondary">
-                                <div class="card-body">
-                                    .border-left-secondary
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-success">
-                                <div class="card-body">
-                                    .border-left-success
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-info">
-                                <div class="card-body">
-                                    .border-left-info
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-warning">
-                                <div class="card-body">
-                                    .border-left-warning
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-danger">
-                                <div class="card-body">
-                                    .border-left-danger
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-dark">
-                                <div class="card-body">
-                                    .border-left-dark
-                                </div>
-                            </div>
-
                         </div>
-
-                        <!-- Border Bottom Utilities -->
-                        <div class="col-lg-6">
-
-                            <div class="card mb-4 py-3 border-bottom-primary">
-                                <div class="card-body">
-                                    .border-bottom-primary
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-secondary">
-                                <div class="card-body">
-                                    .border-bottom-secondary
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-success">
-                                <div class="card-body">
-                                    .border-bottom-success
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-info">
-                                <div class="card-body">
-                                    .border-bottom-info
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-warning">
-                                <div class="card-body">
-                                    .border-bottom-warning
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-danger">
-                                <div class="card-body">
-                                    .border-bottom-danger
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-bottom-dark">
-                                <div class="card-body">
-                                    .border-bottom-dark
-                                </div>
-                            </div>
-
-                        </div>
-
                     </div>
 
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <!-- Circle Buttons -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Mis emociones hoy: <h id="current_date"></h></h6>
+                                    <script>
+                                        date = new Date();
+                                        year = date.getFullYear();
+                                        month = date.getMonth() + 1;
+                                        day = date.getDate();
+                                        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+                                    </script>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+                                        <div class="form-group row">			
+                                            <input type="hidden" class="form-control" name="user" value="<?php echo $id;?>" />
+                                        </div>
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Amor
+                                            </h6>
+                                            <select name="namor" class="custom-select my-1 mr-sm-2" id="namor">
+                                            <?php
+                                                include ("conexion1.php");
+                                                $con = connect(); 
+                                                $amor="SELECT * FROM amor";
+                                                $love=@mysqli_query($con, $amor);
+                                                while($conamor=mysqli_fetch_array($love))  { ?>
+                                                <option value="<?php echo $conamor['id_amor']?> ">
+                                                <?php echo $conamor['emamor']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Miedo
+                                            </h6>
+                                            <select name="nmiedo" class="custom-select my-1 mr-sm-2" id="nmiedo">
+                                            <?php 
+                                                $miedo="SELECT * FROM miedo";
+                                                $fear=@mysqli_query($con, $miedo);
+                                                while($conmiedo=mysqli_fetch_array($fear))  { ?>
+                                                <option value="<?php echo $conmiedo['id_miedo']?> ">
+                                                <?php echo $conmiedo['emmiedo']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Enojo
+                                            </h6>
+                                            <select name="nenojo" class="custom-select my-1 mr-sm-2" id="nenojo">
+                                            <?php 
+                                                $enojo="SELECT * FROM enojo";
+                                                $angry=@mysqli_query($con, $enojo);
+                                                while($nojao=mysqli_fetch_array($angry))  { ?>
+                                                <option value="<?php echo $nojao['id_enojo']?> ">
+                                                <?php echo $nojao['emenojo']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                            
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Tristeza
+                                            </h6>
+                                            <select name="ntristeza" class="custom-select my-1 mr-sm-2" id="ntristeza">
+                                            <?php 
+                                                $triste="SELECT * FROM tristeza";
+                                                $sad=@mysqli_query($con, $triste);
+                                                while($troste=mysqli_fetch_array($sad))  { ?>
+                                                <option value="<?php echo $troste['id_tristeza']?> ">
+                                                <?php echo $troste['emtristeza']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Felicidad
+                                            </h6>
+                                            <select name="nfelicidad" class="custom-select my-1 mr-sm-2" id="nfelicidad">
+                                            <?php 
+                                                $feliz="SELECT * FROM felicidad";
+                                                $happy=@mysqli_query($con, $feliz);
+                                                while($lombriz=mysqli_fetch_array($happy))  { ?>
+                                                <option value="<?php echo $lombriz['id_felicidad']?> ">
+                                                <?php echo $lombriz['emfelicidad']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                  
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Sorpresa
+                                            </h6>
+                                            <select name="nsorpresa" class="custom-select my-1 mr-sm-2" id="nsorpresa">
+                                            <?php 
+                                                $sorpresa="SELECT * FROM sorpresa";
+                                                $surprise=@mysqli_query($con, $sorpresa);
+                                                while($salv=mysqli_fetch_array($surprise))  { ?>
+                                                <option value="<?php echo $salv['id_sorpresa']?> ">
+                                                <?php echo $salv['emsorpresa']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                        
+                                        <div class="form-group row">
+                                            <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                Repugnancia
+                                            </h6>
+                                            <select name="nrepugnancia" class="custom-select my-1 mr-sm-2" id="nrepugnancia">
+                                            <?php 
+                                                $wakala="SELECT * FROM repugnancia";
+                                                $wtf=@mysqli_query($con, $wakala);
+                                                while($pollo=mysqli_fetch_array($wtf))  { ?>
+                                                <option value="<?php echo $pollo['id_repugnancia']?> ">
+                                                <?php echo $pollo['emrepugnancia']?></option><?php } ?>  
+                                            </select>
+                                        </div>
+                                        <button type="submit" name="register" class="btn btn-primary btn-user btn-block">Registrar Emociones</button>
+                                    </form>	
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
